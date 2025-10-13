@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HR GPT</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong&effect=shadow-multiple">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+  <script type="text/javascript">
+    function showLoading() {
+      document.getElementById("loading").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='sitelogo.png')}}" alt="Site Logo">
+    <h1 class="font-effect-shadow-multiple">HR/Recruitment Assistance Platform</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="jd">JD Creation</a></li>
+        <li><a href="jdresume">JD-Resume Comparision</a></li>
+        <li><a href="iqs" class='active-page'>Interview Questions</a></li>
+        <li><a href="email">Email Creation</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Interview Questions Generation Page</h2>
+    <p>Welcome to our Interview Questions Generator page! Our platform is designed to help you quickly and easily create customized interview questions that accurately reflect the requirements of your job position.</p>
+    <p>Our system uses cutting-edge natural language processing technology to analyze your job position, required skills, tone, and years of experience, and generates a set of interview questions tailored to your specific needs. Our questions are designed to assess the candidate's knowledge, experience, and suitability for the position.</p>
+    <p>Our goal is to save you time and effort by providing you with a comprehensive and relevant set of interview questions that you can use to assess the skills and suitability of your job candidates. With our easy-to-use platform, you can generate a set of interview questions that accurately reflect your hiring needs in just a few clicks.</p>
+    <form action="iqs" method='post' id="iqsform" >
+      <div style="display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto auto; padding: 10px">
+        <div><h4>Job Position: </h4><input type="text" name="jobposition" placeholder="Enter the Job Position"></div>
+        <div><h4>Choose a Tone: </h4><select id="tone" name="tone">
+          <option value="professional">Professional</option>
+          <option value="formal">Formal</option>
+          <option value="friendly">Friendly</option>
+          <option value="casual">Casual</option>
+          <option value="youthful">Youthful</option>
+          <option value="clever">Clever</option>
+          <option value="persuasive">Persuasive</option>
+        </select></div>
+        <div><h4>Skills: </h4><textarea id="skills" name="skills" rows="4" cols="40" placeholder="Enter skills"></textarea></div>
+        <div><h4>Experience: </h4><input type="text" name="experience" placeholder="Enter experience (eg., 3 or 5 to 7 etc)"></div>
+        <div style="grid-column: 1 / span 2; grid-row: 3; text-align: center;"> 
+          <input type="submit" value="Generate Interview Questions" onclick="showLoading()" >
+          <div id="notes"><b>Note:</b> All fields are mandatory</div>
+        </div>
+      </div>
+    </form>
+    {{ result | safe }}
+  </main>
+  <br/><br/><br/>
+  <div id="loading">
+    <img src="{{ url_for('static', filename='loading.gif')}}" alt="Loading">
+  </div>
+  <footer>
+    <p>&copy; 2023 - Raja Narravulla</p>
+  </footer>
+</body>
+</html>

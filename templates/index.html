@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HR GPT</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong&effect=shadow-multiple">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+  <script type="text/javascript">
+    function showLoading() {
+      document.getElementById("loading").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='sitelogo.png')}}" alt="Site Logo">
+    <h1 class="font-effect-shadow-multiple">HR/Recruitment Assistance Platform</h1>
+    <nav>
+      <ul>
+        <li><a href="/" class='active-page'>Home</a></li>
+        <li><a href="jd">JD Creation</a></li>
+        <li><a href="jdresume">JD-Resume Comparision</a></li>
+        <li><a href="iqs">Interview Questions</a></li>
+        <li><a href="email">Email Creation</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Welcome to HR / Recruitment Assistance Platform</h2>
+    <p>Leveraging the Generative Artificial Intelligence (GAI) such as ChatGPT for performing some of the HR related activities. ChatGPt can be a powerful tool for HR and Recruitment professionals in a variety of ways, including generating interview questions, creation of job descriptions, comparison of JD and Resume and even creating an email to send to job seekers and many more. All these can enhance the overall experience. </p>
+    <h3>Job Description Generation</h3>
+    <p>We can ask ChatGPT for creation of any Job Description providing the Role, Key Skills and Requirements and it can create the JD on the fly. This can save the HR time.</p>
+    <h3>Job Description & Resume Comparision</h3>
+    <p>We can ask ChatGPT to compare the Job Description and any of the job seeker's Resume giving as the inputs and expect a score or probability of how well the JD is matching with the Resume. We can even ask ChatGPt to summarize the difference in a paragraph as a human level language. </p>
+    <h3>Interview Questions Generation</h3>
+    <p>We can ask ChatGPT for providing any number of interview questions based on the role the job seeker applying for, skills required, number of years of experience etc and it can provide us the list of questions that can be used by the interviewer.</p>
+    <h3>Email Creation</h3>
+    <p>We can ask ChatGPT to assist us in drafting an email that we plan to send to job seeker under various conditions such as Offer release, moving to next round etc. We can set the Tone as well such as Professional, Friendly, Empathetic etc. ChatGPT can understand the mood and can draft the message that can be readily used or can be modified by HR.</p>
+  </main>
+  <br/><br/><br/>
+  <div id="loading">
+    <img src="{{ url_for('static', filename='loading.gif')}}" alt="Loading">
+  </div>
+  <footer>
+    <p>&copy; 2023 - Raja Narravulla</p>
+  </footer>
+</body>
+</html>

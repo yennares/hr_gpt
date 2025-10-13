@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HR GPT</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong&effect=shadow-multiple">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+  <script type="text/javascript">
+    function showLoading() {
+      document.getElementById("loading").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='sitelogo.png')}}" alt="Site Logo">
+    <h1 class="font-effect-shadow-multiple">HR/Recruitment Assistance Platform</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="jd">JD Creation</a></li>
+        <li><a href="jdresume">JD-Resume Comparision</a></li>
+        <li><a href="iqs">Interview Questions</a></li>
+        <li><a href="email" class='active-page'>Email Creation</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Email Generation Page</h2>
+    <p>Welcome to our Email Generation Page! Our platform is designed to help you quickly and easily create customized emails for various job-related purposes such as interview invitations, offer release, and rejection letters.</p>
+
+    <p>Our system uses cutting-edge natural language processing technology to analyze the type of email you need to send and generates an appropriate template for your email. You can also customize the tone of the email to match the company's culture and brand voice.</p>
+
+    <p>With our platform, you can quickly generate emails for various job-related purposes, including:<p>
+      <ul>
+        <li>Interview Invitations: Our platform generates professional and engaging emails that include all the necessary details, such as date and time of the interview, interview invitation link, and instructions for online assessments.</li>
+
+        <li>Offer Release: Our platform generates emails that convey the excitement and enthusiasm of extending a job offer to a candidate while providing all the necessary details, such as job title, salary, start date, and benefits.</li>
+
+        <li>Rejection Letters: Our platform generates professional and courteous rejection letters that convey the appreciation for the candidate's interest in the position while providing feedback and encouragement to keep applying for future job opportunities.</li>
+      </ul>
+
+      <p>Our goal is to save you time and effort by providing you with customized email templates that accurately reflect the company's culture and brand voice. With our easy-to-use platform, you can quickly generate emails that accurately convey hiring decisions and feedback.</p>      
+      <form action="email" method='post' id="emailform" >
+        <div style="display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto auto; padding: 10px">
+          <div><h4>Email Type: </h4><input type="text" name="emailtype" placeholder="Email type (eg., interview invitation, offer release, rejection etc)"></div>
+          <div><h4>Choose a Tone: </h4><select id="tone" name="tone">
+            <option value="professional">Professional</option>
+            <option value="formal">Formal</option>
+            <option value="neutral">Neutral</option>
+            <option value="informal">Informal</option>
+          </select></div>
+          <div><h4>Optional Comments: </h4><textarea id="opcom" name="opcom" rows="4" cols="40" placeholder="eg., date and time of interview, invitation link etc"></textarea></div>
+          <div></div>
+          <div style="grid-column: 1 / span 2; grid-row: 3; text-align: center;"> 
+            <input type="submit" value="Generate Email Template" onclick="showLoading()" >
+            <div id="notes"><b>Note:</b> Email type and Tone are mandatory</div>
+          </div>
+        </div>
+      </form>
+      {{ result | safe }}
+    </main>
+    <br/><br/><br/>
+    <div id="loading">
+      <img src="{{ url_for('static', filename='loading.gif')}}" alt="Loading">
+    </div>
+    <footer>
+      <p>&copy; 2023 - Raja Narravulla</p>
+    </footer>
+  </body>
+  </html>
+
+

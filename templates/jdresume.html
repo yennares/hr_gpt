@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HR GPT</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong&effect=shadow-multiple">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+  <script type="text/javascript">
+    function showLoading() {
+      document.getElementById("loading").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='sitelogo.png')}}" alt="Site Logo">
+    <h1 class="font-effect-shadow-multiple">HR/Recruitment Assistance Platform</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="jd">JD Creation</a></li>
+        <li><a href="jdresume" class='active-page'>JD-Resume Comparision</a></li>
+        <li><a href="iqs">Interview Questions</a></li>
+        <li><a href="email">Email Creation</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Job Description and Resume Comparision Page</h2>
+    <p>Introducing a powerful feature that revolutionizes the way hiring managers find the right candidates for their job openings. Our feature takes the job description and the resume of any employee as inputs and provides a matching score in terms of percentage, along with a brief summary that hiring managers can easily understand and use to make informed decisions.</p>
+
+    <p>The matching score is presented as a percentage, with higher percentages indicating a better match between the job description and the candidate's resume. In addition to the matching score, our feature also provides a brief summary that highlights the key similarities and differences between the job description and the candidate's resume.</p>
+
+    <p>With our feature, hiring managers can save time and effort while finding the best candidates for their job openings.</p>
+
+    <p id="rednotes"><b>Note:</b> Since the JD and Resume are lengthy. Copy and Paste only necessary sections. ChatGPT Model will not take more tokens and will lead to Error.</p>
+
+    <form action="jdresume" method='post' id="jdresumeform" enctype="multipart/form-data" >
+      <div style="display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto auto; padding: 10px">
+        <div><h4>Upload Job Description: </h4><textarea id="jd" name="jd" rows="4" cols="40" placeholder="Copy Paste Job Description here"></textarea></div>
+        <div><h4>Upload Resume: </h4><textarea id="resume" name="resume" rows="4" cols="40" placeholder="Copy Paste Resume here"></textarea></div>
+<!--           <div><h4>Optional Comments: </h4><textarea id="opcom" name="opcom" rows="4" cols="40" placeholder="Any additional comments ..."></textarea></div>
+          <div></div>
+        -->          <div style="grid-column: 1 / span 2; grid-row: 2; text-align: center;"><br>
+          <input type="submit" value="Generate Matching Score and Summary" onclick="showLoading()" >
+          <div id="notes"><b>Note:</b> Uploading JD and Resume are mandatory.</div>
+        </div>
+      </div>
+    </form>
+    {{ result | safe }}
+    <br/><br/>
+    {{ jdresumebrief }}
+  </main>
+  <br/><br/><br/>
+  <div id="loading">
+    <img src="{{ url_for('static', filename='loading.gif')}}" alt="Loading">
+  </div>
+  <footer>
+    <p>&copy; 2023 - Raja Narravulla</p>
+  </footer>
+</body>
+</html>
+
+
