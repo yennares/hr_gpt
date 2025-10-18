@@ -18,8 +18,8 @@ A Flask-based web application that leverages OpenAI's GPT-4o-mini model to assis
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
-cd hrgpt
+git clone https://github.com/yennares/hr_gpt.git
+cd hr_gpt
 ```
 
 2. Create a virtual environment (recommended):
